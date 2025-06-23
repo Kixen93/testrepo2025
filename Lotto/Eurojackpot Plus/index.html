@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurojackpot</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .jatek {
+            margin-bottom: 10px;
+        }
+
+        .szamgomb {
+            display: inline-block;
+            background-color: #fed901;
+            color: #fff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin: 3px;
+
+        }
+
+        @keyframes begordul {
+            0% {
+                transform: translateX(100px) scale(0.8) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(0) scale(1) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes megfordul {
+            0% {
+                transform: rotateY(0deg);
+                filter: brightness(1.2);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+                /* teljes kör, hogy ne „hagyjon ott” tükrözést */
+                filter: brightness(1);
+            }
+        }
+
+        .szamgomb {
+            display: inline-block;
+            background-color: #fed901;
+            color: transparent;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin: 3px;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            animation: begordul 0.6s ease forwards;
+            animation-delay: var(--kesleltetes);
+            position: relative;
+            perspective: 500px;
+        }
+
+        .szamgomb.felfed {
+            animation: megfordul 0.5s ease forwards;
+            animation-delay: var(--kesleltetes);
+            color: #2c3e50;
+            background-color: #fed901;
+        }
+
+        .kis {
+            background-color: #3498db;
+        }
+
+        .jatek-cim {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #34495e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🎱 Eurojackpot számgenerátor</h2>
+
+    <form id="szamform">
+        <label for="szam">Hány játékot szeretnél játszani?</label>
+        <input type="number" id="szam" name="szam" min="1" required>
+        <button type="submit">Mehet</button>
+    </form>
+
+    <div style="padding-top: 10px;" id="eredmenyek"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

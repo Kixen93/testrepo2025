@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skandináv Lottó</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .jatek { margin-bottom: 10px; }
+        .szamgomb {
+            display: inline-block;
+            background-color: #19407c;
+            color: #fff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin: 3px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>🎱 Skandináv Lottó számgenerátor</h2>
+
+    <form id="szamform">
+        <label for="szam">Hány játékot szeretnél játszani?</label>
+        <input type="number" id="szam" name="szam" min="1" required>
+        <button type="submit">Mehet</button>
+    </form>
+
+    <div style="padding-top: 10px;" id="eredmenyek"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
